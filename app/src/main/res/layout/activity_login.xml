@@ -24,7 +24,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
-            android:textColor="@color/tabhost_item_color_normal"
+            android:textColor="@color/colorPrimary"
             android:textSize="17dp"
             android:text="注册"
             android:layout_width="wrap_content"
@@ -42,10 +42,9 @@
             android:layout_height="wrap_content">
 
             <TextView
-
                 android:layout_centerHorizontal="true"
                 android:text="登录界面"
-                android:textSize="18dp"
+                android:textSize="25dp"
                 android:textColor="#fff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -99,8 +98,9 @@
             android:id="@+id/btn_login"
             android:text="登录"
             android:textSize="20dp"
+            android:textColor="@color/colorPrimary"
             android:layout_marginTop="25dp"
-            android:background="@mipmap/point"
+            android:background="@drawable/orange_selector"
             android:layout_gravity="center"
             android:layout_width="140dp"
             android:layout_height="wrap_content" />

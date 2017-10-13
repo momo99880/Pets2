@@ -8,4 +8,6 @@
     <color name="minColor">#00ff00</color>
     <color name="red">#fa485e</color>
     <color name="transparent">#0000</color>
+    <color name="gray">#aeaeae</color>
+    <color name="blue">#13DFF8</color>
 </resources>

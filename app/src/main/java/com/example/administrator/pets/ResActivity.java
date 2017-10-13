@@ -1,6 +1,9 @@
 package com.example.administrator.pets;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,10 +21,17 @@ public class ResActivity extends AppCompatActivity {
     private Button btn_res;
     private TextView toolbar_text,btn_login;
     private ImageView imageview,fanhui;
+    private ResBroadcast receiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_res);
+        if (receiver == null){
+            receiver = new ResBroadcast();
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("com.action.res");
+            registerReceiver(receiver,intentFilter);
+        }
         init();
         initView();
 
@@ -62,7 +72,7 @@ public class ResActivity extends AppCompatActivity {
         String username = et_name.getText().toString().trim();
         String userpwd = et_password.getText().toString().trim();
         String userpwd2 = et_password2.getText().toString().trim();
-        Log.e("beli",username+","+userpwd+","+userpwd2);
+
         if (username.equals("")||userpwd.equals("")||userpwd2.equals("")){
             Toast.makeText(ResActivity.this,"不能存在空的内容",Toast.LENGTH_SHORT).show();
         }else {
@@ -94,6 +104,20 @@ public class ResActivity extends AppCompatActivity {
         super.onDestroy();
         finish();
     }
+    private class ResBroadcast extends BroadcastReceiver{
 
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String code_error = intent.getStringExtra("code_error");
+            if (code_error.equals("-1")){
+//                            用户已存在
+                Toast.makeText(ResActivity.this,"用户已存在",Toast.LENGTH_SHORT).show();
+            }else if (code_error.equals("0")){
+//                            注册成功
+                Toast.makeText(ResActivity.this,"注册成功",Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }
+    }
 
 }
