@@ -120,6 +120,7 @@
             android:textSize="20dp"
             android:textColor="#fff"
             android:layout_width="140dp"
+            android:background="@drawable/orange_selector"
             android:layout_height="wrap_content" />
 
         <ProgressBar

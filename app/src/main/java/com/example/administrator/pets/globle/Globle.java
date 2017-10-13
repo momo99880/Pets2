@@ -5,5 +5,5 @@ package com.example.administrator.pets.globle;
  */
 
 public class Globle {
-    public static final String IP = "10.2.2.81";
+    public static final String IP = "10.2.2.12";
 }
